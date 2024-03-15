@@ -87,9 +87,10 @@ shopt -s nocasematch
     
         # move & delete home folder
         # moving first in case any content is SIP-protected and undeletable, such as com.apple.LaunchServicesTemplateApp.dv 
-        delPre=.delete-`date +"%s"`-
-        mv $a $delPre$a
-        /bin/rm -rf $delPre$a
+        #delPre=.delete-`date +"%s"`- #premature commit. refactoring.
+        #mv $a $delPre$a
+        #/bin/rm -rf $delPre$a
+        /bin/rm -rf $a
         continue
       else
         echo "SKIPPING" $a
