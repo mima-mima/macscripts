@@ -85,8 +85,11 @@ shopt -s nocasematch
         # delete user
         /usr/bin/dscl . delete $a > /dev/null 2>&1
     
-        # delete home folder
-        /bin/rm -rf $a
+        # move & delete home folder
+        # moving first in case any content is SIP-protected and undeletable, such as com.apple.LaunchServicesTemplateApp.dv 
+        delPre=.delete-`date +"%s"`-
+        mv $a $delPre$a
+        /bin/rm -rf $delPre$a
         continue
       else
         echo "SKIPPING" $a
