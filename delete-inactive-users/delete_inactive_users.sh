@@ -54,8 +54,11 @@ shopt -s nocasematch
   AGE=5	# Delete /User/ folders inactive longer than this many days
   tgtPCT=10 # target this percentage of free space
   tgtGB=25 # with a minimum of this absolute free space in gb
-  KEEP=("/Users/.vscode" "/Users/.localized" "/Users/Shared" "/Users/ard_user" "/Users/Presenter" "/Users/theresolution" "/Users/theking" "/Users/thesituation")
+  KEEP=("/Users/root" "/Users/.vscode" "/Users/.localized" "/Users/Shared" "/Users/ard_user" "/Users/Presenter" "/Users/theresolution" "/Users/theking" "/Users/thesituation")
    # User folders you would like to bypass. Typically local users or admin accounts.
+   # January 2025: discovered some sloppy installer created /Users/root during
+   #   some Avid Pro Tools or plugin install in our Audio suites. Broke sudo
+   #   when this script removed the root user with `dscl`!
   CACHELIST="/Library/Caches/*,/Library/Updates/*,/Users/ard_user,/Applications/MATLAB_R2022a.app,/Library/Managed\ Installs/Cache/*"
    # cache etc locations to clean up when space is low
   keepCleaning=1
